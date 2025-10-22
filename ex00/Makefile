@@ -2,7 +2,7 @@
 CXX = g++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98 
 
-SRCS = main.cpp megaphone.cpp
+SRCS = megaphone.cpp
 OBJ_DIR = obj
 OBJS = $(patsubst %.cpp,$(OBJ_DIR)/%.o,$(SRCS))
 NAME = megaphone

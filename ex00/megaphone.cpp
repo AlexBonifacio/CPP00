@@ -1,8 +1,19 @@
-#include "megaphone.hpp"
-#include <cstring>
+#include <iostream>
 
-Megaphone::Megaphone() {}
-Megaphone::~Megaphone() {}
+class Megaphone
+{
+
+public:
+
+	void shout(int argc, const char **message);
+	
+private:
+
+	std::string _message;
+	
+	void _catArgv(const char **argv);
+	void _messageToUpper(const std::string& message) const;
+};
 
 void Megaphone::shout(int argc, const char **argv)
 {
@@ -37,4 +48,14 @@ void Megaphone::_messageToUpper(const std::string& message) const
 		std::cout << c;
 	}
 	std::cout << std::endl;
+}
+
+int main(int argc, char **argv)
+{
+	Megaphone mega;
+
+	mega.shout(argc, (const char**)argv);
+	mega.shout(argc, (const char**)argv);
+
+	return 0;
 }
