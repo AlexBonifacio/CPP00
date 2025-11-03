@@ -1,22 +1,22 @@
 
 CXX = g++
-CXXFLAGS = -Wall -Werror -Wextra -std=c++98
+CXXFLAGS = -Wall -Werror -Wextra -std=c++98 -pedantic
 
-SRCS = main.cpp mapb.cpp mapb.hpp
-OBJS = (patsubst %.cpp,obj/%.o,SRCS)
+SRCS = main.cpp contact.cpp phonebook.cpp
+OBJS = $(patsubst %.cpp,obj/%.o,$(SRCS))
 OBJ_DIR = obj
 
-NAME = mapb
+NAME = phonebook
 
 all: $(NAME)
 
 $(NAME) : $(OBJS) Makefile
-	$(CXX) $(CXXFLAGS) -o $(NAME)
+	$(CXX) $(OBJS) -o $(NAME)
 
 $(OBJ_DIR):
 	mkdir -p $(OBJ_DIR)
 
-$(OBJ_DIR)/%.o : %.c | $(OBJ_DIR)
+$(OBJ_DIR)/%.o : %.cpp | $(OBJ_DIR)
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean :
@@ -27,5 +27,5 @@ fclean : clean
 
 re : fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re tidy
 
