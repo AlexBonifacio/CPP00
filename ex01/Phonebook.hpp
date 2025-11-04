@@ -3,7 +3,7 @@
 
 #define BOOK_SIZE 8
 #define WIDTH 10
-#include "contact.hpp"
+#include "Contact.hpp"
 
 class PhoneBook
 {
