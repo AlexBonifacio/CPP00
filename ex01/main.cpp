@@ -10,7 +10,12 @@ int	main(void)
 
 	do { // NOLINT
 		std::cout << "Enter one of the three commands: ADD, SEARCH or EXIT" << std::endl; // NOLINT (ensure correct display order)
-		std::cin >> input_user;
+		if (!(std::cin >> input_user))
+		{
+			std::cin.clear();
+			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+			return 1;
+		}
 		if (input_user == "ADD")
 		{
 			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');

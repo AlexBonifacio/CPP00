@@ -1,8 +1,8 @@
 
-CXX = g++
+CXX = c++
 CXXFLAGS = -Wall -Werror -Wextra -std=c++98 -pedantic
 
-SRCS = main.cpp contact.cpp phonebook.cpp
+SRCS = main.cpp Contact.cpp Phonebook.cpp
 OBJS = $(patsubst %.cpp,obj/%.o,$(SRCS))
 OBJ_DIR = obj
 
