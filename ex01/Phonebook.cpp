@@ -58,7 +58,15 @@ bool	PhoneBook::displayContacts()
 		return true;
 
 	}
-	cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
+
+	char next;
+	if (std::cin.get(next) && next != '\n') 
+	{
+    	std::cout << "Invalid input (extra characters after number)\n";
+    	_clearCinBuffer();
+    	return true;
+	}
+	
 	if (index >= BOOK_SIZE || index < 0)
 	{
 		cout << "Invalid index" << '\n';
@@ -73,7 +81,7 @@ bool	PhoneBook::displayContacts()
 void	PhoneBook::_cinClear()
 {
 	cin.clear();
-	cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+	_clearCinBuffer();
 }
 
 // clear input buffer in case input is Index+something (0ABC)

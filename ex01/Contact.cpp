@@ -10,35 +10,30 @@ Contact::Contact(){}
 bool Contact::setFromInput()
 {
 	std::cout << "First name: " << std::endl; // NOLINT (ensure correct display order)
-	if (!(std::cin >> _firstName)) 
+	if (!std::getline(std::cin, _firstName))
 	{
 		return _cleandupInput();
 	}
-	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 	cout << "Last name: " << std::endl; // NOLINT (ensure correct display order)
-	if (!(std::cin >> _lastName)) 
+	if (!std::getline(std::cin, _lastName))
 	{
 		return _cleandupInput();
 	}
-	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 	cout << "Nickname: " << std::endl; // NOLINT (ensure correct display order)
-	if (!(std::cin >> _nickName)) 
+	if (!std::getline(std::cin, _nickName))
 	{
 		return _cleandupInput();
 	}
-	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 	cout << "Phone number: " << std::endl; // NOLINT (ensure correct display order)
-	if (!(std::cin >> _phoneNumber)) 
+	if (!std::getline(std::cin, _phoneNumber))
 	{
 		return _cleandupInput();
 	}
-	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 	cout << "Darkest secret: " << std::endl; // NOLINT (ensure correct display order)
-	if (!(std::cin >> _darkestSecret)) 
+	if (!std::getline(std::cin, _darkestSecret))
 	{
 		return _cleandupInput();
 	}
-	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 	return true;
 }
 
@@ -73,7 +68,7 @@ bool	Contact::_cleandupInput()
 	{
 		return false;
 	}
-	std::cin.clear(); // clear the error flag
-	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // discard invalid input
+	std::cin.clear();
+	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 	return true;
 }
