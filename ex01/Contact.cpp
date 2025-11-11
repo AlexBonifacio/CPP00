@@ -9,31 +9,46 @@ Contact::Contact(){}
 
 bool Contact::setFromInput()
 {
-	std::cout << "First name: " << std::endl; // NOLINT (ensure correct display order)
-	if (!std::getline(std::cin, _firstName))
-	{
-		return _cleandupInput();
-	}
+	
+	do {
+		std::cout << "First name: " << std::endl; // NOLINT (ensure correct display order)
+		if (!std::getline(std::cin, _firstName))
+		{
+			return _cleandupInput();
+		}
+	} while (_firstName.empty());
+
+	do {
 	cout << "Last name: " << std::endl; // NOLINT (ensure correct display order)
 	if (!std::getline(std::cin, _lastName))
 	{
 		return _cleandupInput();
 	}
+	} while (_lastName.empty());
+
+	do {
 	cout << "Nickname: " << std::endl; // NOLINT (ensure correct display order)
 	if (!std::getline(std::cin, _nickName))
 	{
 		return _cleandupInput();
 	}
-	cout << "Phone number: " << std::endl; // NOLINT (ensure correct display order)
-	if (!std::getline(std::cin, _phoneNumber))
-	{
-		return _cleandupInput();
-	}
-	cout << "Darkest secret: " << std::endl; // NOLINT (ensure correct display order)
-	if (!std::getline(std::cin, _darkestSecret))
-	{
-		return _cleandupInput();
-	}
+	} while (_nickName.empty());
+	
+	do {
+		cout << "Phone number: " << std::endl; // NOLINT (ensure correct display order)
+		if (!std::getline(std::cin, _phoneNumber))
+		{
+			return _cleandupInput();
+		}
+	} while (_phoneNumber.empty());
+
+	do {
+		cout << "Darkest secret: " << std::endl; // NOLINT (ensure correct display order)
+		if (!std::getline(std::cin, _darkestSecret))
+		{
+			return _cleandupInput();
+		}
+	} while (_darkestSecret.empty());
 	return true;
 }
 
