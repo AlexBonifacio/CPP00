@@ -9,7 +9,7 @@ using	std::endl;
 using	std::cin;
 
 
-PhoneBook::PhoneBook() : _next(0), _curr(0), _count(0), _full(false)
+PhoneBook::PhoneBook() : _next(0), _curr(-1), _count(0), _full(false)
 {}
 
 bool	PhoneBook::addContact()
@@ -67,7 +67,7 @@ bool	PhoneBook::displayContacts()
     	return true;
 	}
 	
-	if (index >= BOOK_SIZE || index < 0)
+	if (index >= BOOK_SIZE || index < 0 || index > _curr)
 	{
 		cout << "Invalid index" << '\n';
 		return true;

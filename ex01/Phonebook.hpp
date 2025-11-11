@@ -16,14 +16,14 @@ class PhoneBook
 		
 	private:
 		
-		static std::string 	_formatTab(const std::string& str);
+		static std::string	_formatTab(const std::string& str);
 		static void			_cinClear();
 		static void			_clearCinBuffer();
 
 		
 		Contact 	_contacts[BOOK_SIZE];
 		std::size_t	_next;
-		std::size_t _curr;
+		int			_curr;
 		std::size_t _count;
 		bool		_full;
 
